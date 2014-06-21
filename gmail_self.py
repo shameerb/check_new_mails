@@ -29,9 +29,13 @@ if __name__=="__main__":
     o=untangle.parse(xml)
     print o.feed.title.cdata
     print '*'*40
+	
     for i in o.feed.entry:
         print "SUBJECT : \t",i.title.cdata
         print "CONTENT : \t",i.summary.cdata
         print '*'*40
+	k=0
+	while(k != 1):
+		k=int(input("press 1 to exit"))
     
 
