@@ -29,14 +29,19 @@ if __name__=="__main__":
 	
 	root=Tk()
 	text_out=[]
-	for i in range(cnt):
+	if cnt==0 :
 		text_out.append(Text(root))
-	#text_out = Text(root)
-	for ind,i in enumerate(o.feed.entry):
-		text_out[ind].insert(INSERT, "MAIL NO : \t"+str(ind+1))
-		text_out[ind].insert(INSERT, "\nSUBJECT : \t"+i.title.cdata)
-		text_out[ind].insert(END, "\nCONTENT : \n\t"+i.summary.cdata)
-		text_out[ind].pack()
+		text_out[0].insert(INSERT, "NO NEW MAILS ")
+		text_out[0].pack()
+	else:	
+		for i in range(cnt):
+			text_out.append(Text(root))
+		#text_out = Text(root)
+		for ind,i in enumerate(o.feed.entry):
+			text_out[ind].insert(INSERT, "MAIL NO : \t"+str(ind+1))
+			text_out[ind].insert(INSERT, "\nSUBJECT : \t"+i.title.cdata)
+			text_out[ind].insert(END, "\nCONTENT : \n\t"+i.summary.cdata)
+			text_out[ind].pack()
 	root.mainloop()
 	
 	    
